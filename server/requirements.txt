@@ -1,0 +1,8 @@
+Flask
+scikit-learn==0.22.2.post1
+py-zipkin
+pyvi
+pandas==1.4.1
+numpy==1.22.2
+matplotlib==3.5.1
+requests

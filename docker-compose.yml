@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  zipkin:
+    image: openzipkin/zipkin:latest
+    container_name: zipkin
+    ports:
+      - "9411:9411"
+    networks:
+      - app-network
+  backend:
+    container_name: tannp3-be-minicapstone
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "1010:1010"
+    volumes:
+      - ./server:/app
+    networks:
+      - app-network
+  frontend:
+    container_name: tannp3-fe-minicapstone
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./client:/app
+    networks:
+      - app-network
+    stdin_open: true
+networks:
+    app-network:
+      driver: bridge

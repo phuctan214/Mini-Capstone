@@ -1,0 +1,6 @@
+Flask==2.0.3
+py-zipkin
+pandas
+numpy
+matplotlib
+streamlit
